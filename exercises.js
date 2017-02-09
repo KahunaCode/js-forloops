@@ -9,7 +9,9 @@ Write a for-loop that will iterate through 20 numbers (starting at 1 and ending 
 "Now serving 20."
 */
 
-
+for(var i =1; i<=20; i++){
+	console.log(`Now serving ${i}`)
+}
 
 
 /* 2) Pop Charts
@@ -22,6 +24,12 @@ This week's chart buster is: '24K Magic.'
 */
 
 var topFive = ["Closer", "Starboy", "I Feel It Coming", "Let Me Love You", "24K Magic"];
+
+for(var i = 0; i<topFive.length; i++){
+	console.log(`This weeks chart buster is: ${i}`)
+}
+
+
 
 
 /* 3) Dead Presidents
@@ -36,6 +44,7 @@ The value at 4 is Monroe.
 
 Next, console.log the length of the array.
 
+
 3-A) Create a function named leaders which will take in a parameter: `person`.
    @param Datatype: String `person`
  
@@ -44,12 +53,29 @@ This function will iterate through the person parameter and console.log the foll
 "President person was a great leader."
 */
 
+var presidents = ["Washington", "Adams", "Jefferson", "Madison", "Monroe"]
+for(var i = 0; i<presidents.length; i++){
+	console.log(`The value at ${i} is ${presidents[i]}`)
+}
+
+function leaders(person){
+	for(var i = 0; i<person.length; i++){
+		console.log(`President ${person[i]} was a great leader`)
+
+	}
+}
+console.log(leaders(presidents))
 
 /* 4) Line Number
 Declare a variable named `stringOfNumbers` and assign its value to an empty string. 
 
 Write a for-loop that concatenates a Number value into that string on each iteration, starting at `10` and continuing up to and including `20`. Console.log your result. It should read "1011121314151617181920"*/
 
+var stringOfNumbers = ""
+for(var i = 10; i<=20; i++){
+	stringOfNumbers += i.toString()
+}
+console.log(stringOfNumbers)
 
 /* 5) Even Stevens
 Declare a variable named `evenNumArr` and assign its value to an empty array. 
@@ -57,7 +83,15 @@ Declare a variable named `evenNumArr` and assign its value to an empty array.
 Write a for-loop that will push even numbers to the `evenNumArr` array. We want to push 50 even even numbers starting from 0.
 Console.log your results.
 */
+var evenNumArr = []
+for(var i =2; evenNumArr.length <50; i++){
+	if(i%2===0){
+		evenNumArr.push(i)
+	}
+}
 
+console.log(evenNumArr)
+console.log("array is ", evenNumArr.length)
 
 /* 6) Up the Odds
 Declare a variable named `oddSum` and assign it to the Number value 0.
