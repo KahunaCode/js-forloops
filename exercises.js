@@ -188,6 +188,7 @@ function copyArray(originArray, destinationArray){
 	for(var i =0; i<originArray.length; i++){
 		console.log(originArray[i]);
 		destinationArray.push(originArray[i]);
+		// or use ... destinationArray[i] = originArray[i]
 		console.log(destinationArray)
 	}
 	return destinationArray;
@@ -264,4 +265,69 @@ The function will iterate through the `cohort` argument and check each student's
 If the `enrolled` property is set to `true` then change that student's `graduated` property to `true`. Otherwise, if `enrolled` is set to `false` then change `enrolled` to `true` leaving `graduated` alone and unchanged.
 Console.log your result.
 */
+
+
+currentCohort = [
+  {
+    name: 'Doug',
+    graduated: false,
+    enrolled: true
+  },
+  {
+    name: 'Pat',
+    graduated: false,
+    enrolled: false
+  },
+  {
+    name: 'Marsha',
+    graduated: false,
+    enrolled: false
+  },
+  {
+    name: 'Moira',
+    graduated: false,
+    enrolled: true
+  },
+  {
+    name: 'Ben',
+    graduated: false,
+    enrolled: true
+  },
+  {
+    name: 'Nigel the Giraffe',
+    graduated: false,
+    enrolled: false
+  },
+  {
+    name: 'Brandon the Shark',
+    graduated: false,
+    enrolled: true
+  }
+]
+
+//If the `enrolled` property is set to `true` then change that student's `graduated` property to `true`. 
+//Otherwise, if `enrolled` is set to `false` then change `enrolled` to `true` leaving `graduated` alone and unchanged.
+
+
+function gradASNC(cohort){
+	for(var i =0; i<cohort.length; i++){
+		//console.log(cohort[i].enrolled)
+		if(cohort[i].enrolled === true){
+			//console.log("enrolled is true")
+			cohort[i].graduated = true;
+			//console.log("graduated is "+cohort[i].graduated)
+		}else if(cohort[i].enrolled === false){
+			//console.log("enrolled is "+cohort[i].enrolled)
+			cohort[i].enrolled = true;
+			// console.log("enrolled has been changed to "+cohort[i].enrolled)
+		}
+			
+		}return cohort
+	}
+
+console.log(gradASNC(currentCohort))
+
+
+
+
 
