@@ -118,6 +118,16 @@ Note that every odd index value in `oopsArray` is currently `undefined`. Using a
 [ 'turn' , 'nope' , 'down' , 'nope' , 'for' , 'nope' , 'what' ]
 */
 
+var oopsArray = [ 'turn' , , 'down' , , 'for' , , 'what' ]
+
+//console.log(oopsArray[1] === undefined)
+for(var i = 0; i<oopsArray.length; i++){
+if(oopsArray[i] === undefined){
+	oopsArray[i] = 'nope'
+	}
+}
+
+console.log(oopsArray)
 
 /* 8) Is It There Oops
 Using a for-loop, iterate through the Array stored at `oopsArray` backwards. Console.log your result. It should look like this:
@@ -131,6 +141,10 @@ nope
 turn
 */
 
+for(i=oopsArray.length-1; i>=0; i-=1){
+	console.log(oopsArray[i])
+}
+
 
 /* 9) Siesta Time
 Declare a variable named `napSchedule` and assign its value to the following array: `[false, false, true, false, true, true]`
@@ -142,6 +156,18 @@ Next, write a function named `nap`. This function takes in a single parameter: `
 Inside of this function write a for-loop that will iterate through the `napSchedule` array and console.log the message: `ZzZzZzZz` if the schedule is `true`, otherwise the it will console.log the message: `Gotta get coding!` if the schedule is `false`.
 */
 
+var napSchedule = [false, false, true, false, true, true]
+function nap(schedule){
+	for(var i =0; i<schedule.length; i++){
+		if(schedule[i]===true){
+			console.log("ZzZzZzZz")
+		}else{
+			console.log("Gotta get coding")
+		}
+	}
+}
+
+nap(napSchedule);
 
 /* 10) Copy Pasta
 Declare a variable named `valuesArray` and assign its value to be an array: `[99, 66, 829, 1941, 8, 76]`. 
@@ -155,6 +181,19 @@ Write a function named `copyArray` which takes two arguments: `originArray` and 
 Inside of this function write a for-loop that will iterate through the contents of the `originArray` and pushes each element of that array into `destinationArray`. Console.log your result.
 */
 
+var valuesArray = [99, 66, 829, 1941, 8, 76]
+var copyValuesArray = []
+
+function copyArray(originArray, destinationArray){
+	for(var i =0; i<originArray.length; i++){
+		console.log(originArray[i]);
+		destinationArray.push(originArray[i]);
+		console.log(destinationArray)
+	}
+	return destinationArray;
+}
+
+console.log(copyArray(valuesArray, copyValuesArray))
 
 /*Final Boss*/
 
@@ -163,6 +202,18 @@ Declare a variable named `topQuote` and assign it to a String value of your favo
 Write a function that will iterate through the string value and return the longest word in that quote. Console.log your result.
 */
 
+var topQuote = "the obstacle is the way"
+
+function longer(quote){
+	word = ""
+	quote = quote.split(' ');
+	for(var i = 0; i<quote.length; i++){
+		if(quote[i].length > word.length){
+			word = quote[i]
+		}
+	}return word
+}
+console.log(longer(topQuote))
 
 
 /* 12) Puppet Master
@@ -173,16 +224,35 @@ Write a function named `generateArrayOfStrings` which takes a single argument `s
    @return Datatype: Array
 
 */
+var miscStorage = [ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ]
 
+function genAOS(storage){
+	newArr = []
+	for(var i = 0; i<storage.length; i++){
+		if(typeof storage[i] === 'string'){
+			newArr.push(storage[i])
+		}
+	}return newArr
+}
 
+console.log(genAOS(miscStorage))
 
 /* 13) All Grown Up 
-Write a function that will capitalize the first letter in each word in the phrase below. The function will console.log the message: "I've Lived A Life That's Full. I've Traveled Each and Every Highway. But More, Much More Than This. I Did It My Way."  
+Write a function that will capitalize the first letter in each word in the phrase below. The function will console.log the message: "I've Lived A Life That's Full. I've Traveled Each And Every Highway. But More, Much More Than This. I Did It My Way."  
 */
 
 var myWay = "i've lived a life that's full, i've traveled each and every highway. but more, much more than this. i did it my way.";
 
+function capitalize(phrase){
+	var newStr = ""
+	phrase = phrase.split(' ')
+	for(var i =0; i<phrase.length; i++){
+		newStr = newStr + phrase[i][0].toUpperCase() + phrase[i].slice(1) + ' '
+	}
+	return newStr
 
+}
+console.log(capitalize(myWay))
 
 /* 14) Back to School
 Declare a variable named `currentCohort` and set it's value to be this [array found here](https://gist.github.com/sgnl/e40879b2249e06ca7811).
